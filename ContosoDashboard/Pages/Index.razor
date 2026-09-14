@@ -5,6 +5,7 @@
 @attribute [Authorize]
 @inject IDashboardService DashboardService
 @inject INotificationService NotificationService
+@inject IDocumentService DocumentService
 @inject AuthenticationStateProvider AuthenticationStateProvider
 
 <PageTitle>Dashboard - ContosoDashboard</PageTitle>
@@ -118,12 +119,38 @@
             }
         </div>
     </div>
+
+    <div class="row mt-4">
+        <div class="col">
+            <div class="d-flex justify-content-between align-items-center">
+                <h3>Recent Documents</h3>
+                <a class="btn btn-outline-primary btn-sm" href="/documents">View all</a>
+            </div>
+            @if (recentDocuments.Any())
+            {
+                <div class="list-group">
+                    @foreach (var document in recentDocuments.Take(5))
+                    {
+                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                            <span><strong>@document.Title</strong><small class="d-block text-muted">@(document.Project?.Name ?? "Personal") · @document.Category</small></span>
+                            <small class="text-muted">@document.UploadedUtc.ToLocalTime().ToString("MMM dd")</small>
+                        </div>
+                    }
+                </div>
+            }
+            else
+            {
+                <p class="text-muted">No documents available.</p>
+            }
+        </div>
+    </div>
 </div>
 
 @code {
     private DashboardSummary? summary;
     private List<Announcement>? announcements;
     private List<Notification>? recentNotifications;
+    private List<Document> recentDocuments = new();
     private string userName = "User";
     private int currentUserId = 0;
 
@@ -146,6 +173,7 @@
             summary = await DashboardService.GetDashboardSummaryAsync(currentUserId);
             announcements = await DashboardService.GetActiveAnnouncementsAsync();
             recentNotifications = await NotificationService.GetUserNotificationsAsync(currentUserId);
+            recentDocuments = await DocumentService.GetUserDocumentsAsync(currentUserId);
         }
     }
 

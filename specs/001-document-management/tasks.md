@@ -15,9 +15,9 @@
 
 **Purpose**: Confirm the document feature fits the repository’s existing model, data, and authorization patterns before implementation.
 
-- [ ] T001 Review existing application patterns and document feature boundaries in `ContosoDashboard/Program.cs`, `ContosoDashboard/Data/ApplicationDbContext.cs`, and `ContosoDashboard/Services/ProjectService.cs`
-- [ ] T002 Create the feature implementation folders and confirm repository conventions for document models, services, and pages in `ContosoDashboard/Models/`, `ContosoDashboard/Services/`, and `ContosoDashboard/Pages/`
-- [ ] T003 [P] Extend the database context for document records and access metadata in `ContosoDashboard/Data/ApplicationDbContext.cs`
+- [X] T001 Review existing application patterns and document feature boundaries in `ContosoDashboard/Program.cs`, `ContosoDashboard/Data/ApplicationDbContext.cs`, and `ContosoDashboard/Services/ProjectService.cs`
+- [X] T002 Create the feature implementation folders and confirm repository conventions for document models, services, and pages in `ContosoDashboard/Models/`, `ContosoDashboard/Services/`, and `ContosoDashboard/Pages/`
+- [X] T003 [P] Extend the database context for document records and access metadata in `ContosoDashboard/Data/ApplicationDbContext.cs`
 
 ---
 
@@ -27,11 +27,11 @@
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel.
 
-- [ ] T004 Add the `Document` and `DocumentShare` entity models with the required constraints from `specs/001-document-management/data-model.md` in `ContosoDashboard/Models/Document.cs` and `ContosoDashboard/Models/DocumentShare.cs`
-- [ ] T005 Implement the local file storage abstraction and validation workflow required by the contract in `ContosoDashboard/Services/IDocumentStorageService.cs` and `ContosoDashboard/Services/LocalDocumentStorageService.cs`
-- [ ] T006 Build the document service layer for creation, access checks, search, and lifecycle operations in `ContosoDashboard/Services/DocumentService.cs`
-- [ ] T007 Register the document services and storage dependency injection in `ContosoDashboard/Program.cs`
-- [ ] T008 [P] Add authorization and safety checks around file paths and project membership in `ContosoDashboard/Services/DocumentService.cs` and `ContosoDashboard/Services/ProjectService.cs`
+- [X] T004 Add the `Document` and `DocumentShare` entity models with the required constraints from `specs/001-document-management/data-model.md` in `ContosoDashboard/Models/Document.cs` and `ContosoDashboard/Models/DocumentShare.cs`
+- [X] T005 Implement the local file storage abstraction and validation workflow required by the contract in `ContosoDashboard/Services/IDocumentStorageService.cs` and `ContosoDashboard/Services/LocalDocumentStorageService.cs`
+- [X] T006 Build the document service layer for creation, access checks, search, and lifecycle operations in `ContosoDashboard/Services/DocumentService.cs`
+- [X] T007 Register the document services and storage dependency injection in `ContosoDashboard/Program.cs`
+- [X] T008 [P] Add authorization and safety checks around file paths and project membership in `ContosoDashboard/Services/DocumentService.cs` and `ContosoDashboard/Services/ProjectService.cs`
 
 ---
 
@@ -43,11 +43,11 @@
 
 ### Implementation for User Story 1
 
-- [ ] T009 [P] [US1] Create the document upload form and validation state in `ContosoDashboard/Pages/Documents.razor`
-- [ ] T010 [US1] Implement create-document validation for required title/category, supported types, and 25 MB size limit in `ContosoDashboard/Services/DocumentService.cs`
-- [ ] T011 [US1] Persist uploaded files and metadata after successful validation in `ContosoDashboard/Services/LocalDocumentStorageService.cs` and `ContosoDashboard/Data/ApplicationDbContext.cs`
-- [ ] T012 [US1] Add success and error messaging for upload outcomes in `ContosoDashboard/Pages/Documents.razor`
-- [ ] T013 [US1] Surface the user’s uploaded documents with project association in the project or personal document list in `ContosoDashboard/Pages/ProjectDetails.razor` and `ContosoDashboard/Pages/Index.razor`
+- [X] T009 [P] [US1] Create the document upload form and validation state in `ContosoDashboard/Pages/Documents.razor`
+- [X] T010 [US1] Implement create-document validation for required title/category, supported types, and 25 MB size limit in `ContosoDashboard/Services/DocumentService.cs`
+- [X] T011 [US1] Persist uploaded files and metadata after successful validation in `ContosoDashboard/Services/LocalDocumentStorageService.cs` and `ContosoDashboard/Data/ApplicationDbContext.cs`
+- [X] T012 [US1] Add success and error messaging for upload outcomes in `ContosoDashboard/Pages/Documents.razor`
+- [X] T013 [US1] Surface the user’s uploaded documents with project association in the project or personal document list in `ContosoDashboard/Pages/ProjectDetails.razor` and `ContosoDashboard/Pages/Index.razor`
 
 **Checkpoint**: At this point, User Story 1 should be fully functional and independently testable.
 
